@@ -85,23 +85,26 @@ public class BookingActivity extends AppCompatActivity {
                         rowClicked = i;
                     }
                 }
-                TextView timeView = recyclerView.findViewHolderForAdapterPosition(rowClicked).itemView.findViewById(R.id.timeSlot);
                 if(rowClicked >= 0) {
-                    bookingTime = timeView.getText().toString();
+                    TextView timeView = recyclerView.findViewHolderForAdapterPosition(rowClicked).itemView.findViewById(R.id.timeSlot);
+                    bookingTime = dateString + " " + timeView.getText().toString();
                     SaveBooking(bookingTime);
+
+                    Intent intent = new Intent(BookingActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
                 Log.d("firebase", String.valueOf(rowClicked));
             }
         });
     }
 
-    private void SaveBooking(String timeSlots) {
+    private void SaveBooking(String timeSlot) {
 
 //        DatabaseReference ref= FirebaseDatabase.getInstance().getReference();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("timeSlot", "2:00 PM");
+        map.put("timeSlot", timeSlot);
         map.put("status", "Booked");
         map.put("booked", "True");
 

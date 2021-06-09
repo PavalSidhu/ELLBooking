@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.TextView;
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
@@ -16,8 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnGoCalender;
     private Button btnGoUser;
+    private Button btnSignOut;
 //    private FirebaseAnalytics analytics;
     private String email;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +31,25 @@ public class MainActivity extends AppCompatActivity {
 
         btnGoCalender = (Button) findViewById(R.id.btnGoCalender);
         btnGoUser = (Button) findViewById(R.id.btnGoUserInfo);
+        btnSignOut = (Button) findViewById(R.id.signOutMain);
 
         Intent incomingIntent = getIntent();
         email = incomingIntent.getStringExtra("email");
+
+        btnSignOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                        | Intent.FLAG_ACTIVITY_CLEAR_TOP
+                        | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
+
+            }
+        });
 
         btnGoCalender.setOnClickListener(new View.OnClickListener() {
             @Override
