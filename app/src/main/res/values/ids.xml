@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="checkBox" type="id" />
+    <item name="status" type="id" />
+    <item name="timeSlot" type="id" />
+    <item name="BookingDate" type="id" />
+    <item name="bookingHomeBtn" type="id" />
+    <item name="bookingBackBtn" type="id" />
+    <item name="saveBookingData" type="id" />
+    <item name="recyclerView" type="id" />
+</resources>

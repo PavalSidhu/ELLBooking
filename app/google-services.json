@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "918058986726",
+    "project_id": "ellbooking",
+    "storage_bucket": "ellbooking.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:918058986726:android:e3260f0634c26aa77cdf27",
+        "android_client_info": {
+          "package_name": "com.example.ellbooking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "918058986726-uidsp61t5vnajg6p25jf48c0k2osdjcv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHBMoyMAqXMtkEV5stTxGTZr-u8N_t2PQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "918058986726-uidsp61t5vnajg6p25jf48c0k2osdjcv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
