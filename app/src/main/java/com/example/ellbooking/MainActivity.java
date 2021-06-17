@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnGoCalender;
     private Button btnGoUser;
     private Button btnSignOut;
+    private Button btnGoAppointment;
 //    private FirebaseAnalytics analytics;
     private String email;
     private FirebaseAuth mAuth;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btnGoCalender = (Button) findViewById(R.id.btnGoCalender);
         btnGoUser = (Button) findViewById(R.id.btnGoUserInfo);
         btnSignOut = (Button) findViewById(R.id.signOutMain);
+        btnGoAppointment = (Button) findViewById(R.id.btnGoAppointment);
 
         Intent incomingIntent = getIntent();
         email = incomingIntent.getStringExtra("email");
@@ -65,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, UserActivity.class);
                 intent.putExtra("email", email);
+                startActivity(intent);
+            }
+        });
+
+        btnGoAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AppointmentActivity.class);
                 startActivity(intent);
             }
         });

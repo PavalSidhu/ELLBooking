@@ -42,8 +42,8 @@
 
     <TextView
         android:id="@+id/BookingDate"
-        android:layout_width="248dp"
-        android:layout_height="75dp"
+        android:layout_width="371dp"
+        android:layout_height="70dp"
         android:gravity="center"
         android:text="Date"
         android:textSize="64dp"

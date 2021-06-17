@@ -15,8 +15,15 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+
+    List<FetchData> fetchData;
+
+    public MyAdapter(List<FetchData> fetchData) {
+        this.fetchData = fetchData;
+    }
 
     String timeSlots[], status[];
     Boolean booked[];
@@ -49,6 +56,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.myText1.setText(timeSlots[position]);
         holder.myText2.setText(status[position]);
         holder.checkBox1.setChecked(booked[position]);
+
+        if(holder.myText2.getText().toString().equals("Booked")) {
+            holder.checkBox1.setClickable(false);
+            holder.checkBox1.setEnabled(false);
+        }
 
         if (selectCheck.get(position) == 1) {
             holder.checkBox1.setChecked(true);
@@ -93,6 +105,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             myText1 = itemView.findViewById(R.id.timeSlot);
             myText2 = itemView.findViewById(R.id.status);
             checkBox1 = itemView.findViewById(R.id.booked);
+
+            if(myText2.getText().toString().equals("Booked")) {
+                checkBox1.setClickable(false);
+                checkBox1.setEnabled(false);
+            }
         }
 
     }

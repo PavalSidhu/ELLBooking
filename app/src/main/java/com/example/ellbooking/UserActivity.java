@@ -150,6 +150,7 @@ public class UserActivity extends AppCompatActivity {
         });
 
     }
+
     private void SaveUserData() {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();

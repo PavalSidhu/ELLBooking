@@ -18,6 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.925" />
 
+    <Button
+        android:id="@+id/hiddenDate"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:text="19/06/2021"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.977" />
+
     <CalendarView
         android:id="@+id/calendarView"
         android:layout_width="391dp"
