@@ -1,19 +1,19 @@
 package com.example.ellbooking;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.TextView;
-import com.google.firebase.analytics.FirebaseAnalytics;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.ellbooking.View.MainView;
 import com.google.firebase.auth.FirebaseAuth;
 
-import org.w3c.dom.Text;
+import java.io.IOException;
+import java.io.Serializable;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable, MainView {
 
     private Button btnGoCalender;
     private Button btnGoUser;
@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        try {
+            showOriginalView();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void showOriginalView() throws IOException {
         setContentView(R.layout.activity_main);
 
 //        analytics = FirebaseAnalytics.getInstance(this);
@@ -35,8 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btnSignOut = (Button) findViewById(R.id.signOutMain);
         btnGoAppointment = (Button) findViewById(R.id.btnGoAppointment);
 
-        Intent incomingIntent = getIntent();
-        email = incomingIntent.getStringExtra("email");
+//        Intent incomingIntent = getIntent();
+//        email = incomingIntent.getStringExtra("email");
 
         btnSignOut.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
 
         btnGoCalender.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,5 +90,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }
